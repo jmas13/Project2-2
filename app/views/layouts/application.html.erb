@@ -20,22 +20,22 @@
              <% end %>
       </div>
   </header>
-  <% if notice %>
-    <p class="notification-banner notice"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="notification-banner alert"><%= alert %></p>
-  <% end %>
   <div class="content" id="main">
     <nav>
       <% if current_user %>
       <%= link_to 'View My Projects', user_projects_path(current_user) %>
+      <%= link_to 'Start New Project', new_user_project_path(current_user) %>
       <% else %>
         <%= link_to 'Login to View Projects', user_session_path %>
       <% end %>
-      <%= link_to 'Start New Project', new_user_project_path(current_user) %>
-    </nav>
 
+    </nav>
+    <% if notice %>
+      <p class="notification-banner notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="notification-banner alert"><%= alert %></p>
+    <% end %>
 
     <%= yield %>
   </div>

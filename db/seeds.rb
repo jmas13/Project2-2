@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+# 
 # projects = Project.create([{title: 'Home Chores'}, {title: 'Job Applications'}, {title: 'Homework'}])
 #
 # projects.each do |project|
