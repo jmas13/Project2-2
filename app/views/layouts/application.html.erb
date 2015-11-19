@@ -23,8 +23,8 @@
   <div class="content" id="main">
     <nav>
       <% if current_user %>
-      <%= link_to 'View My Projects', user_projects_path(current_user) %>
-      <%= link_to 'Start New Project', new_user_project_path(current_user) %>
+      <%= link_to 'View My Projects', projects_path %>
+      <%= link_to 'Start New Project', new_project_path %>
       <% else %>
         <%= link_to 'Login to View Projects', user_session_path %>
       <% end %>

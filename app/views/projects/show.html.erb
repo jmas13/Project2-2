@@ -5,21 +5,16 @@
     <% @tasks.each do |task| %>
       <% task.set_priority %>
       <div class="row">
-        <%= link_to task.name, user_project_task_path(current_user, @project, task), class: 'task' %>
+
+        <%= link_to task.name, project_task_path(@project, task), class: 'task' %>
         <% if task.status == 'Closed' %>
           <aside class="due" id='done'>Done!</aside>
         <% else %>
-          <% if task.priority == 'High' || task.priority == 'Urgent' %>
-            <aside class='due' id='soon'><%= task.due_in%> days left</aside>
-          <% elsif task.priority == 'Med'%>
-            <aside class='due' id='later'><%= task.due_in%> days left</aside>
-          <% else %>
-            <aside class='due'><%= task.due_in%> days left</aside>
-          <% end %>
-        <% end %>  
+          <aside class='<%= "due priority-#{task.priority}" %>'><%= task.due_in%> days left</aside>
+        <% end %>
       </div>
     <% end %>
-    <%= link_to '+', new_user_project_task_path(current_user, @project), class: 'button' %>
+    <%= link_to '+', new_project_task_path(@project), class: 'button' %>
   </div>
 
 
@@ -28,11 +23,11 @@
     <ul>
       <li><div class="image-container"><%= image_tag(@project.image) %></div></li>
       <li><%= @project.description %></li>
-      <li>Start Date: <%= @project.created_at.to_date %></li>
+      <li>Start Date: <%= time_ago_in_words(@project.created_at)%> ago </li>
       <li>Due Date: <%= @project.due_date %></li>
       <li>Status: <%= @project.status %></li>
       <li>Created by: <%= @project.user.first_name %> <%= @project.user.last_name %></li>
     </ul>
-    <%= link_to 'Edit Project', edit_user_project_path(current_user, @project), class: 'button' %>
-    <%= link_to 'Delete', user_project_path(current_user, @project), method: :delete, class:'button' %>
+    <%= link_to 'Edit Project', edit_project_path(@project), class: 'button' %>
+    <%= link_to 'Delete', project_path(@project), method: :delete, class:'button' %>
   </div>

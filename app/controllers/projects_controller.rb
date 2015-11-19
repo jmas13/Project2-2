@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   #index
   def index
-    @projects = Project.all
+    @projects = current_user.projects.all
   end
 
   #new
@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
     if @project.save
       flash[:notice] = "New project created! Go ahead and add the first task."
-      redirect_to user_project_path(current_user, @project)
+      redirect_to project_path(@project)
     else
       render :new
     end
@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     if @project.update(project_params)
       flash[:notice] = "Your changes to #{@project.title} bave been saved."
-      redirect_to user_project_path(current_user, @project)
+      redirect_to project_path(@project)
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to user_projects_path(current_user)
+    redirect_to projects_path
   end
 
   private

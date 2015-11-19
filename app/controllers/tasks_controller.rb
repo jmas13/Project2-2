@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     @task = @project.tasks.new(task_params)
     if @task.save
       flash[:notice] = "Woohoo! New task created."
-      redirect_to user_project_path(current_user, @project)
+      redirect_to project_path(@project)
     else
       render :new
     end
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
       flash[:notice] = "Good new! Everything went smoothly and your task is updated."
-      redirect_to user_project_task_path(current_user, @project, @task)
+      redirect_to project_task_path(@project, @task)
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @project = @task.project
     @task.destroy
-    redirect_to user_project_path(current_user,@project)
+    redirect_to project_path(@project)
   end
 
   private

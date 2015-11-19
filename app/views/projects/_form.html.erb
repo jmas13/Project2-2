@@ -2,7 +2,7 @@
   <div class="alert notification-banner"><%= @project.errors.full_messages.first%></div>
 <% end %>
 <div class="field">
-  <%= form_for ([current_user, @project]) do |f| %>
+  <%= form_for @project do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
     <%= f.label :description %>

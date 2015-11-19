@@ -10,8 +10,6 @@ html {
 }
 
 body{
-  /*background-color: rgb(222, 151, 12);*/
-  /*background-color: rgb(208, 208, 208);*/
   background-color: rgb(107, 143, 103);
   color: rgb(36, 49, 61);
   font-family: 'PT Mono';
@@ -109,8 +107,6 @@ nav{
 .item-view{
   width: 300px;
   flex-grow: 1;
-  /*background-color: rgb(215, 135, 5);*/
-  /*background-color: rgb(152, 151, 151);*/
   background-color: rgba(117, 118, 118, 0.57);
   border-radius: 3px;
   padding: 10px;
@@ -153,7 +149,6 @@ box-shadow: 0px 0px 26px -8px rgba(10,51,29,1);
   flex-direction: row;
 }
 .due{
-  background-color: rgb(41, 93, 41);
   color: rgb(170, 166, 158);
   border-radius: 3px;
   margin-bottom: 5px;
@@ -163,12 +158,15 @@ box-shadow: 0px 0px 26px -8px rgba(10,51,29,1);
   font-size: 14px;
 }
 
-#soon{
-  background-color: #C41E00;
-  color: rgb(170, 166, 158);
+.priority-High, .priority-Urgent{
+  background-color: rgb(196, 30, 0);
 }
-#later{
+.priority-Med{
   background-color: rgb(227, 179, 58);
+  color: rgb(36, 49, 61);
+}
+.priority-Low{
+  background-color: rgb(41, 93, 41);
 }
 #done{
   background-color: rgb(40, 38, 38);

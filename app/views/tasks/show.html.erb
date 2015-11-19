@@ -2,13 +2,13 @@
   <div class="item-view">
     <h2><%= @task.name %></p></h2>
     <ul>
-      <li>Parent Project: <%= link_to @task.project.title,user_project_path(current_user, @task.project)  %></li>
+      <li>Parent Project: <%= link_to @task.project.title, project_path(@task.project)  %></li>
       <li>Due: <%= @task.due_date %></li>
       <li>Status: <%= @task.status %></li>
       <li>Priority: <%= @task.priority %></li>
       <li>Created by: <%= @task.project.user.first_name %> <%= @task.project.user.last_name%></li>
       <li>Due in: <%= @due_in %> days</li>
     </ul>
-    <%= link_to 'Edit', edit_user_project_task_path(current_user, @task.project, @task), class: 'button' %>
-    <%= link_to 'Delete', user_project_task_path(current_user, @task.project, @task), method: :delete, class:'button' %>
+    <%= link_to 'Edit', edit_project_task_path(@task.project, @task), class: 'button' %>
+    <%= link_to 'Delete', project_task_path(@task.project, @task), method: :delete, class:'button' %>
   </div>
