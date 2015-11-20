@@ -8,6 +8,20 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+.quote{
+  position: absolute;
+  top: 30%;
+  width: 700px;
+  left: calc(50% - 350px);
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 45px;
+  color: rgb(56, 42, 73);
+}
+.quote span{
+  display: block;
+  text-align: right;
+  font-size: 35px;
+}
 
 body{
   background-color: rgb(107, 143, 103);

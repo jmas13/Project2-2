@@ -3,6 +3,7 @@
     <h2><%= @task.name %></p></h2>
     <ul>
       <li>Parent Project: <%= link_to @task.project.title, project_path(@task.project)  %></li>
+      <li><%= %> is responsible for this task</li>
       <li>Due: <%= @task.due_date %></li>
       <li>Status: <%= @task.status %></li>
       <li>Priority: <%= @task.priority %></li>

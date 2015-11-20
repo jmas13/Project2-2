@@ -45,6 +45,12 @@ class TasksController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  # def assign
+  #   @task = Task.find(params[:id])
+  #   Assignment.create(user: current_user, task: @task)
+  #   redirect_to project_task_path(@task.project, @task)
+  # end
+
   private
 
   def task_params
