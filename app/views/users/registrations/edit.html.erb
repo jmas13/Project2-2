@@ -1,47 +1,33 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
+<div class="item-view">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
   <div class="field">
-    <%= f.text_field :first_name, autofocus: true, placeholder: 'First Name' %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+        <%= f.text_field :first_name, autofocus: true, placeholder: 'First Name' %>
+
+        <%= f.text_field :last_name, autofocus: true, placeholder: 'Last Name' %>
+
+        <%= f.text_field :image, autofocus: true, placeholder: 'Photo URL' %>
+
+        <%= f.email_field :email, autofocus: true, placeholder: 'Email Address' %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+
+        <%= f.password_field :password, autocomplete: "off", placeholder: 'New Password' %>
+
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm New Password' %>
+
+        <%= f.password_field :current_password, autocomplete: "off", placeholder: 'Confirm Current Password To Save Changes' %>
+
+        <%= f.submit "Update" %>
+
+    <% end %>
   </div>
+  <h3>Cancel my account</h3>
 
-  <div class="field">
-    <%= f.text_field :last_name, autofocus: true, placeholder: 'Last Name' %>
-  </div>
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-  <div class="field">
-    <%= f.text_field :image, autofocus: true, placeholder: 'Photo URL' %>
-  </div>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, placeholder: 'Email Address' %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off", placeholder: 'New Password' %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm New Password' %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :current_password, autocomplete: "off", placeholder: 'Confirm Current Password To Save Changes' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back %>
+</div>

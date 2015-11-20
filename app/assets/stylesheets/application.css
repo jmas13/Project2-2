@@ -64,6 +64,7 @@ a{
   align-content: center;
 }
 .field input, textarea, select{
+  display: block;
   border: none;
   border-radius: 3px;
   background-color: rgb(52, 73, 94);
@@ -71,6 +72,7 @@ a{
   width: 300px;
   color: rgb(170, 166, 158);
   font-size: 14px;
+  margin-bottom: 10px;
 }
 .field textarea{
   height: 150px;
@@ -78,7 +80,6 @@ a{
 }
 .field label{
   display: block;
-  margin-top: 10px;
 }
 .button, input[type='submit']{
   display: inline-block;
